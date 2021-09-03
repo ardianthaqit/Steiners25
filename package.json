@@ -1,0 +1,23 @@
+{
+  "name": "steiner",
+  "version": "1.0.0",
+  "description": "Steiner s25",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ardianthaqit/Steiners25.git"
+  },
+  "author": "Solution 25",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ardianthaqit/Steiners25/issues"
+  },
+  "homepage": "https://github.com/ardianthaqit/Steiners25#readme",
+  "dependencies": {
+    "alpinejs": "^3.3.1",
+    "tailwindcss": "^2.2.9"
+  }
+}
