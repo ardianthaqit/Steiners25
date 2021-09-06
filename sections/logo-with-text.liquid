@@ -1,0 +1,71 @@
+{%- assign img_class = 'w-28 md:w-40 mx-auto' -%}
+{%- assign col_class = 'flex-grow text-center' -%}
+<div class="w-full pt-10 pb-12">
+  {% if section.settings.title != blank %}
+    <div class="mt-5 font-headline text-center leading-tight custom-title lg:text-5xl text-2xl pb-5">
+      {{ section.settings.title }}
+    </div>
+  {% endif %}
+  <div class="max-w-7xl mx-auto
+              px-10 xl:px-0
+              grid grid-cols-2 md:flex
+              gap-x-10 gap-y-10 md:space-x-5">
+      {% for block in section.blocks %}
+        {% if block.settings.image  != blank %}
+          <div class="{{ col_class }}">
+              <div class="inline-flex">
+                {{ block.settings.image| img_url: 'master'| img_tag: block.settings.icon.alt}}
+              </div>
+              {% if block.settings.description != blank %}
+              <div class="font-normal	text-sm text-newsletter pt-5 leading-23">
+                {{ block.settings.description }}
+              </div>
+              {% endif %}
+          </div>
+        {% endif %}
+      {% endfor %}
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name":"Trust Icons (with Text)",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title"
+    }
+  ],
+  "blocks": [
+    { 
+      "type": "icon",
+      "name": "Icon",  
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_red_dot",
+          "label": "Show red dot"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Logo  (with text)",
+      "category": "Content"
+    }
+  ]
+}
+{% endschema %}

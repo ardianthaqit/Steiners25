@@ -4,7 +4,8 @@
   "description": "Steiner s25",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tailwindcss build src/application.css -o assets/style.css",
+    "start": "npm run build  && theme watch --allow-live"
   },
   "repository": {
     "type": "git",
@@ -17,7 +18,11 @@
   },
   "homepage": "https://github.com/ardianthaqit/Steiners25#readme",
   "dependencies": {
-    "alpinejs": "^3.3.1",
+    "alpinejs": "^3.3.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.3.4",
+    "postcss": "^8.3.6",
     "tailwindcss": "^2.2.9"
   }
 }

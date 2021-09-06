@@ -76,26 +76,26 @@
       >
     </div>
   {%- endif -%}
-  <div class="banner__content banner__content--{{ section.settings.desktop_text_box_position }} page-width">
-    <div class="banner__box color-{{ section.settings.color_scheme }}">
+  <div class=" max-w-1312 flex justify-start items-center mx-auto w-full">
+    <div class="relative">
       {%- for block in section.blocks -%}
         {%- case block.type -%}
           {%- when 'heading' -%}
-            <h2 class="banner__heading {% if block.settings.heading_size == 'medium' %}h1{% else %}h0{% endif %}" {{ block.shopify_attributes }}>
+            <h2 class="text-56 text-textshadow text-whitegrey font-bold w-940px" {{ block.shopify_attributes }}>
               <span>{{ block.settings.heading | escape }}</span>
             </h2>
           {%- when 'text' -%}
-            <div class="banner__text" {{ block.shopify_attributes }}>
-              <span>{{ block.settings.text | escape }}</span>
+            <div class="banner__text pt-10  w-629" {{ block.shopify_attributes }}>
+              <span class="text-18 text-white ">{{ block.settings.text | escape }}</span>
             </div>
           {%- when 'buttons' -%}
-            <div class="banner__buttons{% if block.settings.button_label_1 != blank and block.settings.button_link_1 != blank and block.settings.button_label_2 != blank and block.settings.button_link_2 != blank %} banner__buttons--multiple{% endif %}" {{ block.shopify_attributes }}>
+            <div class="banner__buttons flex items-center {% if block.settings.button_label_1 != blank and block.settings.button_link_1 != blank and block.settings.button_label_2 != blank and block.settings.button_link_2 != blank %} banner__buttons--multiple{% endif %}" {{ block.shopify_attributes }}>
               {%- if block.settings.button_label_1 != blank -%}
-                <a{% if block.settings.button_link_1 != blank %} href="{{ block.settings.button_link_1 }}"{% endif %} class="button{% if block.settings.button_style_secondary_1 %} button--secondary{% else %} button--primary{% endif %}"{% if block.settings.button_link_1 == blank %} aria-disabled="true"{% endif %}>{{ block.settings.button_label_1 | escape }}</a>
+                <a{% if block.settings.button_link_1 != blank %} href="{{ block.settings.button_link_1 }}"{% endif %} class="button btn-img uppercase shadow-textshadow" style="background-color: {{block.settings.btncolor }};" {% if block.settings.button_link_1 == blank %} aria-disabled="true"{% endif %}>{{ block.settings.button_label_1 | escape }}</a>
               {%- endif -%}
               {%- if block.settings.button_label_2 != blank -%}
-                <a{% if block.settings.button_link_2 != blank %} href="{{ block.settings.button_link_2 }}"{% endif %} class="button{% if block.settings.button_style_secondary_2 %} button--secondary{% else %} button--primary{% endif %}"{% if block.settings.button_link_2 == blank %} aria-disabled="true"{% endif %}>{{ block.settings.button_label_2 | escape }}</a>
-              {%- endif -%}
+              <a{% if block.settings.button_link_2 != blank %} href="{{ block.settings.button_link_2 }}"{% endif %} class="button text-white {% if block.settings.button_style_secondary_2 %} button--secondary{% else %} button--primary{% endif %}"{% if block.settings.button_link_2 == blank %} aria-disabled="true"{% endif %}>  {% render 'buttontext', text: block.settings.button_label_2 %}</a>
+            {%- endif -%}
             </div>
         {%- endcase -%}
       {%- endfor -%}
@@ -266,6 +266,11 @@
           "type": "url",
           "id": "button_link_1",
           "label": "t:sections.image-banner.blocks.buttons.settings.button_link_1.label"
+        },
+        {
+          "type": "color",
+          "id": "btncolor",
+          "label": "Color button"
         },
         {
           "type": "checkbox",
