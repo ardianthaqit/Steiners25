@@ -26,6 +26,7 @@ module.exports = {
         Killarney:'#38664C',
         ShadowGreen:'#93BDB4',
         white:'#fff',
+        sky:'#01A0DB',
       },
       width: {
         '1/7': '14.2857143%',
@@ -52,6 +53,7 @@ module.exports = {
         '8xl': '95rem',
         '625': '625px',
         '1312': '1312px',
+        '70':'70%',
       },
       minWidth: {
         '0': '0',
@@ -152,6 +154,20 @@ module.exports = {
       '72':'72px',
       '56':'56px', 
      },
+     zIndex: {
+      '0': 0,
+      '2': 2,
+     '10': 10,
+     '20': 20,
+     '30': 30,
+     '40': 40,
+     '50': 50,
+     '25': 25,
+     '50': 50,
+     '75': 75,
+     '100': 100,
+      'auto': 'auto',
+    },
      fontSize: {
       'xs': '.75rem',
       'sm': '.875rem',
@@ -171,6 +187,9 @@ module.exports = {
       '44px':'2.75rem', 
       '18':'18px',
       '32':'32px',
+      '44':'44px',
+      '14':'14px',
+      
      },
      fontWeight: {
       hairline: 100,
@@ -185,6 +204,11 @@ module.exports = {
       'extra-bold': 800,
        black: 900,
      },
+     gap: {
+      '5px': '5px',
+      '11': '2.75rem',
+      '13': '3.25rem',
+     }
     },
     
   },

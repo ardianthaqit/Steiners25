@@ -530,7 +530,7 @@ h6:empty {
   display: inline-block;
   border: none;
   box-shadow: none;
-  text-decoration: underline;
+  /* text-decoration: underline; */
   text-underline-offset: 0.3rem;
   color: rgb(var(--color-link));
   background-color: transparent;
@@ -890,7 +890,7 @@ summary::-webkit-details-marker {
 }
 
 .grid__item {
-  padding-left: 0.5rem;
+  /* padding-left: 0.5rem; */
   padding-bottom: 0.5rem;
   width: calc(25% - 0.5rem * 3 / 4);
   max-width: 50%;
@@ -900,7 +900,7 @@ summary::-webkit-details-marker {
 
 @media screen and (min-width: 750px) {
   .grid__item {
-    padding-left: 2rem;
+    /* padding-left: 2rem; */
     padding-bottom: 1rem;
     width: calc(25% - 1rem * 3 / 4);
     max-width: 50%;
@@ -956,7 +956,7 @@ summary::-webkit-details-marker {
   }
 
   .grid--4-col-tablet .grid__item {
-    width: calc(25% - 1rem * 3 / 4);
+    width: 20%;
   }
 
   .grid--3-col-tablet .grid__item {
@@ -970,7 +970,7 @@ summary::-webkit-details-marker {
 
 @media screen and (min-width: 990px) {
   .grid--4-col-desktop .grid__item {
-    width: calc(25% - 1rem * 3 / 4);
+    width: 22%;
   }
 
   .grid--3-col-desktop .grid__item {
@@ -1133,8 +1133,8 @@ deferred-media {
   text-decoration: none;
   border: 0;
   border-radius: 0;
-  background-color: rgba(var(--color-button), var(--alpha-button-background));
-  box-shadow: 0 0 0 0.1rem rgba(var(--color-button), var(--alpha-button-border));
+  /* background-color: rgba(var(--color-button), var(--alpha-button-background));
+  box-shadow: 0 0 0 0.1rem rgba(var(--color-button), var(--alpha-button-border)); */
   color: rgb(var(--color-button-text));
   min-width: 12rem;
   min-height: 4.5rem;
@@ -1181,11 +1181,11 @@ deferred-media {
 
 /* Button - hover */
 
-.button:not([disabled]):hover,
+/* .button:not([disabled]):hover,
 .shopify-challenge__button:hover,
 .customer button:hover {
   box-shadow: 0 0 0 0.2rem rgba(var(--color-button), var(--alpha-button-border));
-}
+} */
 
 /* Button - other */
 
@@ -2263,4 +2263,36 @@ details-disclosure > details {
 .btn-img{
   padding: 20px 40px 20px 40px!important;
   font-size: 18px!important;
+}
+.footer-width{
+  width: 0%!important;
+}
+.footer-width:first-child {
+  width: 20%!important;
+}
+.text-shadow{
+  text-shadow: 0px 4px 4px #00000066;
+
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  
+  .footer-width:first-child {
+    width: 50%!important;
+  }
+  .footer-width{
+    width: 50%!important;
+  }
+}
+@media (min-width: 320px) and (max-width: 480px) {
+  .footer-width{
+    width: 100%!important;
+  }
+  .btn-img{
+    padding: 10px 20px 10px 20px!important;
+
+  }
+  
+}
+.d-ml{
+  margin-left: 0!important;
 }

@@ -18,7 +18,9 @@
 .list-social__link {
   align-items: center;
   display: flex;
-  padding: 1.3rem;
+  padding-top: 1.3rem;
+  padding-bottom: 1.3rem;
+  padding-right: 1.3rem;
 }
 
 .list-social__link:hover .icon {
