@@ -76,7 +76,7 @@
       >
     </div>
   {%- endif -%}
-  <div class="z-2 max-w-1312 flex justify-start items-center mx-auto xl:w-full w-11/12">
+  <div class="z-2 max-w-1312 flex justify-start items-center mx-auto xl:w-full w-11/12 h-screen">
     <div class="relative lg:py-0 py-10">
       {%- for block in section.blocks -%}
         {%- case block.type -%}
@@ -89,7 +89,7 @@
               <span class="text-18 text-white ">{{ block.settings.text | escape }}</span>
             </div>
           {%- when 'buttons' -%}
-            <div class="banner__buttons flex items-center {% if block.settings.button_label_1 != blank and block.settings.button_link_1 != blank and block.settings.button_label_2 != blank and block.settings.button_link_2 != blank %} banner__buttons--multiple{% endif %}" {{ block.shopify_attributes }}>
+            <div class="banner__buttons flex items-center py-10 {% if block.settings.button_label_1 != blank and block.settings.button_link_1 != blank and block.settings.button_label_2 != blank and block.settings.button_link_2 != blank %} banner__buttons--multiple{% endif %}" {{ block.shopify_attributes }}>
               {%- if block.settings.button_label_1 != blank -%}
                 <a{% if block.settings.button_link_1 != blank %} href="{{ block.settings.button_link_1 }}"{% endif %} class="button btn-img sm:mt-0 mt-4 uppercase shadow-textshadow" style="background-color: {{block.settings.btncolor }};" {% if block.settings.button_link_1 == blank %} aria-disabled="true"{% endif %}>{{ block.settings.button_label_1 | escape }}</a>
               {%- endif -%}

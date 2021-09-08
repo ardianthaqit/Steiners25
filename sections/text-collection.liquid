@@ -1,0 +1,70 @@
+<div class="w-full py-20" style="background-color: {{ section.settings.bgcolor }};">
+    <div class="max-w-1312 w-11/12 mx-auto block" >
+        <div class="w-full">
+            {% if section.settings.headline != blank %}
+            <div class="lg:text-32 text-20 text-darkdark font-bold">{{ section.settings.headline | escape }}</div>
+            {% endif%}
+        </div>
+        <div class="w-full">
+            {% if section.settings.decs != blank %}
+            <div class="text-darkgrey text-16 py-10">{{ section.settings.decs }}</div>
+            {% endif%}
+            {% if section.settings.button_text != blank %}
+            <div class="pt-10">
+                <a style="background-color: {{ section.settings.btncolor }};" href="{{ section.settings.button_url }}"
+                class="uppercase button button--primary"
+                aria-label="{{ ariaLabel }}">
+                  <div class="button-config ">
+                    {{- section.settings.button_text | escape -}}
+                  </div>
+              </a>
+            </div>
+          {% endif %}
+        </div>
+    </div>
+</div>
+{% schema %}
+{
+    "name": "Text Collection",
+    "tag": "section",
+    "settings": [
+    {
+        "type": "color",
+        "id": "bgcolor",
+        "label": "Background Color"
+      },
+      {
+        "type": "text",
+        "id": "headline",
+        "label": "Headline"
+      },
+      {
+        "type": "richtext",
+        "id": "decs",
+        "label": "Description"
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button Text"
+      },
+      {
+        "type": "color",
+        "id": "btncolor",
+        "label": "Button Color"
+      },
+      {
+        "type": "url",
+        "id": "button_url",
+        "label": "Button Url"
+      }
+
+          
+    ],
+    "presets": [
+      {
+        "name": "Text Collection"
+      }
+    ]
+  }
+{% endschema %}

@@ -27,6 +27,8 @@ module.exports = {
         ShadowGreen:'#93BDB4',
         white:'#fff',
         sky:'#01A0DB',
+        darkdark:'#2B2A2A',
+        fullgrey:'#333232',
       },
       width: {
         '1/7': '14.2857143%',
@@ -139,6 +141,8 @@ module.exports = {
       '-16': '-4rem',
       '60':'60%',
       '15':'15%',
+      '20':'20%',
+      '41':'40%',
       '30':'30px',
       '3':'3px',
       '5':'5px',
@@ -189,6 +193,8 @@ module.exports = {
       '32':'32px',
       '44':'44px',
       '14':'14px',
+      '16':'16px',
+      '20':'20px',
       
      },
      fontWeight: {
@@ -208,6 +214,8 @@ module.exports = {
       '5px': '5px',
       '11': '2.75rem',
       '13': '3.25rem',
+      '3': '3rem',
+      '2': '2rem',
      }
     },
     

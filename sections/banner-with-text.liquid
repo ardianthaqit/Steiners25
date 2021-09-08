@@ -1,28 +1,26 @@
-<div class="nt-container relative flex items-center overflow-hidden align-center justify-center rounded-md pt-40"> 
+<div class=" relative flex items-center overflow-hidden align-center justify-center"> 
     {% if section.settings.image != blank %}
-    {{ section.settings.image| img_url: 'master'| img_tag: block.settings.icon.alt}}
+    <div class="mobile30vh">{{ section.settings.image| img_url: 'master'| img_tag: block.settings.icon.alt}}</div>
     {% endif %}
-  <div class="flex  w-full  h-full align-center items-center absolute  z-1
-    px-10 py-20 text-center max-w-5xl	 mx-auto
-  ">
+  <div class="text-center absolute sm:top-41 top-20">
     <div class="block">
-        <div class="mt-5 font-headline  leading-tight custom-title lg:text-6xl text-4xl ">
+        <div class="mt-5  ">
             {% if section.settings.headline != blank %}
-                {{ section.settings.headline }}
+               <div class="lg:text-44 text-32 text-shadow text-white font-bold">{{ section.settings.headline }}</div> 
             {% endif %}
           </div>
-          <div class="font-headline  leading-tight custom-title lg:text-2xl text-xl pb-2 ">
+          <div class="pb-2 pt-5">
             {% if section.settings.description != blank %}
-            {{ section.settings.description }}
+           <div class="font-bold text-26 text-white text-shadow"> {{ section.settings.description }}</div>
             {% endif %}
           </div>
     </div>
-    {% if snippet_instance.settings.button_url != blank%}
-    <a href="{{ snippet_instance.settings.button_url }}"
+    {% if section.settings.button_url != blank%}
+    <a href="{{ section.settings.button_url }}"
       class="bg-button bg-btncolor mx-auto py-2 px-2 rounded  relative flex justify-center align-center items-center space-x-5"
       aria-label="{{ ariaLabel }}">
         <div class="text-white font-semibold text-lg md:text-2xl text-center uppercase tracking-wider">
-          {{- snippet_instance.settings.button_text | escape -}}
+          {{- section.settings.button_text | escape -}}
         </div>
     </a>
     {% endif %}
