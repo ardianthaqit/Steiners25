@@ -1,0 +1,131 @@
+<div class="w-full flex">
+    <div class="flex w-1/2">
+        <div class="w-full img-teams">
+            {{ section.settings.firstimage | img_url: 'master'| img_tag: block.settings.icon.alt}}
+        </div>
+        <div class="w-full img-teams">
+            {{ section.settings.secondimage | img_url: 'master'| img_tag: block.settings.icon.alt}}
+        </div>
+    </div>
+    <div class="flex items-center justify-center w-1/2 mx-auto">
+        <div class="block">
+            {% if section.settings.headline != blank %}
+            <div>{{ section.settings.headline }}</div>
+            {% endif %}
+            {% if section.settings.desc != blank %}
+            <div class="py-10">{{ section.settings.desc }}</div>
+            {% endif %}
+            {% if section.settings.button_url != blank%}
+            <a href="{{ section.settings.button_url }}"
+              class="bg-black button pt-4"
+              aria-label="{{ ariaLabel }}">
+                <div class="text-white font-semibold text-lg md:text-2xl text-center uppercase tracking-wider">
+                  {{- section.settings.button_text | escape -}}
+                </div>
+            </a>
+            {% endif %}
+            {% if section.settings.showborder %}
+            <div class="py-10 border-b" style="border-color:{{ section.settings.bordercolor }};"></div>
+            {% endif %}
+            <div class="block">
+                {% if section.settings.name != blank %}
+                <div class="py-10">{{ section.settings.name }}</div>
+                {% endif %}
+                <div class="flex">
+                    <div class="block w-1/4">
+                        {% if section.settings.phone != blank %}
+                        <div class="flex">{% include 'icon-phone' %} <span class="pl-iconpadding">{{ section.settings.labelphone }}</span></div>
+                        <div class="pl-mid">  {{ section.settings.phone }} </div>
+                        {% endif %}
+                    </div>
+                    <div class="block w-1/4">
+                        {% if section.settings.phone != blank %}
+                        <div class="flex">{% include 'icon-mail' %} <span class="pl-iconpadding">{{ section.settings.labelmail }}</span></div>
+                        <div class="pl-mid">  {{ section.settings.email }} </div>
+                        {% endif %} 
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% schema %}
+{
+    "name": "Teams ",
+    "tag": "section",
+    "settings": [
+      {
+          "type": "image_picker",
+          "id": "firstimage",
+          "label": "First Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "secondimage",
+          "label": "Second Image"
+        },
+        {
+          "type": "richtext",
+          "id": "headline",
+          "label": "Headline"
+        },
+        {
+          "type": "richtext",
+          "id": "desc",
+          "label": "description"
+        },
+        {
+          "type": "url",
+          "id": "button_url",
+          "label": "Button url"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button text",
+          "default": "Button"
+        },
+        {
+            "type": "checkbox",
+            "id": "showborder",
+            "label": "Show border"
+        },
+        {
+            "type": "color",
+            "id": "bordercolor",
+            "label": "Border Color"
+         },
+        {
+            "type": "text",
+            "id": "name",
+            "label": "Name"      
+        },
+        {
+            "type": "text",
+            "id": "labelphone",
+            "label": "Label Phone"      
+        },
+        {
+            "type": "text",
+            "id": "phone",
+            "label": "Phone"      
+        },
+        {
+            "type": "text",
+            "id": "labelmail",
+            "label": "Label Email"      
+        }, 
+        {
+            "type": "text",
+            "id": "email",
+            "label": "Email"      
+        }
+
+    ],
+    "presets": [{
+      "name": "Teams",
+      "category": "Content"
+    }]
+  } 
+  {% endschema %}

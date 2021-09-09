@@ -1,20 +1,20 @@
 <div class="w-full">
     <div class="flex">
-        <div class="w-1/3">
-            {{ section.settings.firstimage | img_url: 'master'| img_tag: block.settings.icon.alt}}
+        <div class="w-1/3 w-full-img">
+          {{ section.settings.firstimage | img_url: 'master'| img_tag: block.settings.icon.alt}}
         </div>
-        <div class="w-1/3">
+        <div class="w-1/3 w-full-img">
             {{ section.settings.secondimage | img_url: 'master'| img_tag: block.settings.icon.alt}}
         </div>
-        <div class="w-1/3">
+        <div class="w-1/3 w-full-img">
             {{ section.settings.thirdimage | img_url: 'master'| img_tag: block.settings.icon.alt}}
         </div>
     </div>
     <div class="flex">
-        <div class="w-1/2">
+        <div class="w-1/2 w-full-img">
             {{ section.settings.fourthimage | img_url: 'master'| img_tag: block.settings.icon.alt}}
         </div>
-        <div class="w-1/2">
+        <div class="w-1/2 w-full-img">
             {{ section.settings.fiveimage | img_url: 'master'| img_tag: block.settings.icon.alt}}
         </div>
     </div>
