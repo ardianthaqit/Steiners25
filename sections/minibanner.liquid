@@ -1,0 +1,89 @@
+<div class=" relative flex items-center overflow-hidden align-center justify-center"> 
+    {% if section.settings.image != blank %}
+    <div class="mobile30vh">{{ section.settings.image| img_url: 'master'| img_tag: block.settings.icon.alt}}</div>
+    {% endif %}
+  <div class="text-center absolute sm:top-41 lg:top-20 top-1/3">
+    <div class="block">
+        <div class="mt-5  ">
+            {% if section.settings.headline != blank %}
+               <div class="lg:text-44 md:text-32 text-23 text-shadow text-white font-bold">{{ section.settings.headline }}</div> 
+            {% endif %}
+          </div>
+          <div class="pb-2 pt-5">
+            {% if section.settings.description != blank %}
+           <div class="font-bold text-26 text-white text-shadow"> {{ section.settings.description }}</div>
+            {% endif %}
+          </div>
+    </div>
+    {% if section.settings.button_url != blank%}
+    <a href="{{ section.settings.button_url }}"
+      class="bg-button bg-btncolor mx-auto py-2 px-2 rounded  relative flex justify-center align-center items-center space-x-5"
+      aria-label="{{ ariaLabel }}">
+        <div class="text-white font-semibold text-lg md:text-2xl text-center uppercase tracking-wider">
+          {{- section.settings.button_text | escape -}}
+        </div>
+    </a>
+    {% endif %}
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Banner with Text",
+  "tag": "section",
+  "settings": [
+    {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "mobileimage",
+        "label": "Mobile Image"
+      },
+      {
+        "type": "richtext",
+        "id": "headline",
+        "label": "Headline",
+        "default": "<p>Headline</p>"
+      },
+      {
+        "type": "richtext",
+        "id": "description",
+        "label": "description",
+        "default": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste quos hic praesentium recusandae dolores odio animi deleniti officia cum itaque.</p>"
+      },
+      {
+        "type": "url",
+        "id": "button_url",
+        "label": "Button url"
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button text",
+        "default": "Button"
+      },
+      {
+        "type": "select",
+        "id": "layout",
+        "label": "Layout",
+        "options": [
+          {
+            "value": "dark",
+            "label": "Dark"
+          },
+          {
+            "value": "light",
+            "label": "Light"
+          }
+        ],
+        "default": "dark"
+      }
+  ],
+  "presets": [{
+    "name": "Banner with Text",
+    "category": "Content"
+  }]
+} 
+{% endschema %}

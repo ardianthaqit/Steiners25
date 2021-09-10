@@ -217,7 +217,7 @@
   {%- endif -%}
 
   <div class="footer__content-bottom">
-    <div class="max-w-1312 mx-auto w-11/12">
+    <div class="page-width mx-auto w-11/12">
       <div class="footer__column footer__localization">
         {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
           <noscript>
@@ -305,9 +305,9 @@
         {%- endif -%}
       </div>
       <div class="sm:flex block w-full justify-start">
-        <div class="footer__copyright caption sm:w-1/2 w-full flex sm:justify-start justify-center">
-          <small class="copyright__content">&copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: routes.root_url }}</small>
-          <small class="copyright__content">{{ powered_by_link }}</small>
+        <div class="footer__copyright caption sm:w-1/2 w-full flex sm:justify-start justify-center opacity-505 text-darkgrey text-15">
+          <small class="copyright__content">&copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: routes.root_url }}  </small>
+          <small class="copyright__content pl-4"><a href="https://www.solution25.com/">CREATED BY SOLUTION25 </a></small>
         </div>
         {%- if section.settings.payment_enable -%}
           <div class="footer__payment sm:w-1/2 w-full flex">

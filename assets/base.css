@@ -511,7 +511,6 @@ table:not([class]) th {
 a:empty,
 ul:empty,
 dl:empty,
-div:empty,
 section:empty,
 article:empty,
 p:empty,
@@ -2321,4 +2320,10 @@ li.collection-list__item.grid__item {
 }
 .w-full-img img{
 width: 100%;
+}
+.line{
+  border-bottom: 1px solid #CBCACA;
+}
+.footer__copyright{
+  font-size: 15px!important;
 }

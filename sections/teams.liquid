@@ -1,5 +1,5 @@
-<div class="w-full flex">
-    <div class="flex w-1/2">
+<div class="w-full xl:flex block">
+    <div class="flex xl:w-1/2 w-full ">
         <div class="w-full img-teams">
             {{ section.settings.firstimage | img_url: 'master'| img_tag: block.settings.icon.alt}}
         </div>
@@ -7,13 +7,13 @@
             {{ section.settings.secondimage | img_url: 'master'| img_tag: block.settings.icon.alt}}
         </div>
     </div>
-    <div class="flex items-center justify-center w-1/2 mx-auto">
+    <div class="flex items-center justify-center lg:w-1/2  w-11/12 mx-auto xl:py-0 py-10">
         <div class="block">
             {% if section.settings.headline != blank %}
-            <div>{{ section.settings.headline }}</div>
+            <div class="lg:text-32 text-25 font-bold text-darkdark md:w-652 w-auto">{{ section.settings.headline }}</div>
             {% endif %}
             {% if section.settings.desc != blank %}
-            <div class="py-10">{{ section.settings.desc }}</div>
+            <div class="py-4 font-bold text-20 text-15 text-darkdark md:w-652 w-auto">{{ section.settings.desc }}</div>
             {% endif %}
             {% if section.settings.button_url != blank%}
             <a href="{{ section.settings.button_url }}"
@@ -24,24 +24,22 @@
                 </div>
             </a>
             {% endif %}
-            {% if section.settings.showborder %}
-            <div class="py-10 border-b" style="border-color:{{ section.settings.bordercolor }};"></div>
-            {% endif %}
+             <div class="{% if section.settings.showborder %} py-10 line {% endif %}"></div>
             <div class="block">
                 {% if section.settings.name != blank %}
-                <div class="py-10">{{ section.settings.name }}</div>
+                <div class="py-10 font-bold text-20 text-darkdark">{{ section.settings.name }}</div>
                 {% endif %}
-                <div class="flex">
-                    <div class="block w-1/4">
+                <div class="lg:flex block">
+                    <div class="block lg:w-1/4 w-full">
                         {% if section.settings.phone != blank %}
-                        <div class="flex">{% include 'icon-phone' %} <span class="pl-iconpadding">{{ section.settings.labelphone }}</span></div>
-                        <div class="pl-mid">  {{ section.settings.phone }} </div>
+                        <div class="flex">{% include 'icon-phone' %} <span class="pl-iconpadding text-16 font-bold text-darkdark">{{ section.settings.labelphone }}</span></div>
+                        <div class="pl-mid text-16 text-darkdark font-normal">{{ section.settings.phone }} </div>
                         {% endif %}
                     </div>
-                    <div class="block w-1/4">
+                    <div class="block lg:w-1/4 w-full lg:pt-0 pt-4">
                         {% if section.settings.phone != blank %}
-                        <div class="flex">{% include 'icon-mail' %} <span class="pl-iconpadding">{{ section.settings.labelmail }}</span></div>
-                        <div class="pl-mid">  {{ section.settings.email }} </div>
+                        <div class="flex">{% include 'icon-mail' %} <span class="pl-iconpadding text-16 font-bold text-darkdark">{{ section.settings.labelmail }}</span></div>
+                        <div class="pl-mid text-16 text-darkdark font-normal">{{ section.settings.email }} </div>
                         {% endif %} 
                     </div>
                 </div>
@@ -91,11 +89,6 @@
             "id": "showborder",
             "label": "Show border"
         },
-        {
-            "type": "color",
-            "id": "bordercolor",
-            "label": "Border Color"
-         },
         {
             "type": "text",
             "id": "name",
