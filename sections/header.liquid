@@ -68,11 +68,17 @@
 <script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
 
-<svg xmlns="http://www.w3.org/2000/svg" class="hidden">
-  <symbol id="icon-search" viewbox="0 0 18 19" fill="none">
-    <path fill-rule="evenodd" clip-rule="evenodd" d="M11.03 11.68A5.784 5.784 0 112.85 3.5a5.784 5.784 0 018.18 8.18zm.26 1.12a6.78 6.78 0 11.72-.7l5.4 5.4a.5.5 0 11-.71.7l-5.41-5.4z" fill="currentColor"/>
-  </symbol>
 
+
+<svg xmlns="http://www.w3.org/2000/svg" class="hidden">
+  <symbol id="icon-search" width="20.414" height="20.414" viewBox="0 0 20.414 20.414">
+    <g id="fi:search" transform="translate(-2 -2)">
+      <path id="Vector" d="M16,8A8,8,0,1,1,8,0,8,8,0,0,1,16,8Z" transform="translate(3 3)" fill="none" stroke="#1c1d1f" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      <path id="Vector-2" data-name="Vector" d="M4.35,4.35,0,0" transform="translate(16.65 16.65)" fill="none" stroke="#1c1d1f" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    </g>
+  </symbol>
+ 
+  
   <symbol id="icon-close" class="icon icon-close" fill="none" viewBox="0 0 18 17">
     <path d="M.865 15.978a.5.5 0 00.707.707l7.433-7.431 7.579 7.282a.501.501 0 00.846-.37.5.5 0 00-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 10-.707-.708L8.991 7.853 1.413.573a.5.5 0 10-.693.72l7.563 7.268-7.418 7.417z" fill="currentColor">
   </symbol>
@@ -391,6 +397,7 @@
     {%- endif -%}
 
     <div class="header__icons">
+     <span class="flex justify-center items-center pr-4"> <a href="/account/login">{% include 'icon-login' %}</a></span>
       <details-modal class="header__search">
         <details>
           <summary class="header__icon header__icon--search header__icon--summary link link--text focus-inset modal__toggle" aria-haspopup="dialog" aria-label="{{ 'general.search.search' | t }}">
@@ -463,7 +470,7 @@
           </div>
         </details>
       </details-modal>
-
+    
       {%- if shop.customer_accounts_enabled -%}
         <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="header__icon header__icon--account link link--text focus-inset{% if section.settings.menu != blank %} small-hide{% endif %}">
           {% render 'icon-account' %}
@@ -497,6 +504,7 @@
           </div>
         {%- endif -%}
       </a>
+      
     </div>
   </header>
 </{% if section.settings.enable_sticky_header %}sticky-header{% else %}div{% endif %}>

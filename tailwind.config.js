@@ -29,6 +29,7 @@ module.exports = {
         sky:'#01A0DB',
         darkdark:'#2B2A2A',
         fullgrey:'#333232',
+        fulldark:'#202223',
       },
       width: {
         '1/7': '14.2857143%',

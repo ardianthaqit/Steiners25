@@ -16,7 +16,7 @@
 
 <footer class="footer gradient" style="background-color: {{ section.settings.bgcolor }};">
   {%- if section.blocks.size > 0 or section.settings.newsletter_enable or section.settings.show_social -%}
-    <div class="footer__content-top page-width">
+    <div class="footer__content-top max-w-1312 mx-auto xl:w-full w-11/12">
       {%- if section.blocks.size > 0 -%}
         {%- liquid
           if section.blocks.size == 9
