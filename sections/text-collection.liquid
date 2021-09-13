@@ -1,8 +1,8 @@
-<div class="w-full py-20" style="background-color: {{ section.settings.bgcolor }};">
-    <div class="max-w-1312 w-9/12 mx-auto block" >
+<div class="w-full py-20 {% if section.settings.show_border %} border-top py-40 {% endif %}" style="background-color: {{ section.settings.bgcolor }};">
+    <div class="max-w-1312 lg:w-9/12 w-11/12 mx-auto block" >
         <div class="w-full">
             {% if section.settings.headline != blank %}
-            <div class="lg:text-32 text-20 text-darkdark font-bold">{{ section.settings.headline | escape }}</div>
+            <div class="lg:text-32 text-20 text-darkdark font-bold">{{ section.settings.headline }}</div>
             {% endif%}
         </div>
         <div class="w-full">
@@ -15,7 +15,7 @@
                 class="uppercase button button--primary"
                 aria-label="{{ ariaLabel }}">
                   <div class="button-config ">
-                    {{- section.settings.button_text | escape -}}
+                    {{ section.settings.button_text }}
                   </div>
               </a>
             </div>
@@ -34,7 +34,7 @@
         "label": "Background Color"
       },
       {
-        "type": "text",
+        "type": "richtext",
         "id": "headline",
         "label": "Headline"
       },
@@ -57,8 +57,12 @@
         "type": "url",
         "id": "button_url",
         "label": "Button Url"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_border",
+        "label": "Show Border"
       }
-
           
     ],
     "presets": [

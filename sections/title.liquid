@@ -1,0 +1,32 @@
+<div class="w-full flex" style="background-color: {{ section.settings.bgcolor }};">
+    <div class="py-40 max-w-1312 mx-auto xl:w-full w-11/12 ">
+        {% if section.settings.title != blank %}
+        <div class="text-white lg:text-56 text-32 text-darkdark font-bold">{{ section.settings.title }}</div>
+        {% endif %}
+    </div>
+</div>
+
+{% schema %}
+{
+  "name":"Title",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+        "type": "color",
+        "id": "bgcolor",
+        "label": "Background Color"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Title",
+      "category": "Content"
+    }
+  ]
+}
+
+{% endschema %}

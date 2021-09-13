@@ -1,0 +1,28 @@
+<div class="w-full block" style="background-color: {{ section.settings.bgcolor }};">
+    <div class="max-w-1312 mx-auto xl:w-full w-11/12">
+        {% if product.metafields.global.titledeatils != blank %}
+        <div>{{ product.metafields.global.titledeatils }}</div>
+        {% endif %}
+        {{ product.metafields.global.textdetails }}
+        {{ product.metafields.global.tablecontent }}
+    </div>
+</div>
+{% schema %}
+{
+    "name": "Product extensions",
+    "tag": "section",
+    "settings": [
+    {
+        "type": "color",
+        "id": "bgcolor",
+        "label": "Background Color"
+      }
+          
+    ],
+    "presets": [
+      {
+        "name": "Product extensions"
+      }
+    ]
+  }
+{% endschema %}

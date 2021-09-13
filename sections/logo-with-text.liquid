@@ -1,6 +1,6 @@
 {%- assign img_class = 'w-28 md:w-40 mx-auto' -%}
 {%- assign col_class = 'flex-grow text-center' -%}
-<div class="w-11/12 mx-auto py-20">
+<div class="w-11/12 mx-auto py-20 ">
   {% if section.settings.title != blank %}
     <div class="mt-5 font-headline text-center leading-tight custom-title lg:text-5xl text-2xl pb-5">
       {{ section.settings.title }}
@@ -31,6 +31,7 @@
 {% schema %}
 {
   "name":"Trust Icons (with Text)",
+  "class":"bt",
   "settings": [
     {
       "type": "richtext",

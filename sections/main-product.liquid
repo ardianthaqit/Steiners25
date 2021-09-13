@@ -18,8 +18,16 @@
 {%- endif -%}
 
 <section class="max-w-1312 mx-auto xl:w-full w-11/12">
-  <div class="product grid-d grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
-    <div class="w-1/2 product__media-wrapper ">
+  <div class="items-center product grid-d grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
+    <div class="w-1/2 ">
+
+
+
+
+
+
+
+      
       <slider-component class="slider-mobile-gutter">
         <a class="skip-to-content-link button visually-hidden" href="#ProductInfo-{{ section.id }}">
           {{ "accessibility.skip_to_product_info" | t }}
@@ -34,7 +42,7 @@
           {%- endif -%}
           {%- for media in product.media -%}
             {%- unless media.id == product.selected_or_first_available_variant.featured_media.id -%}
-              <li class=" product__media-item grid__item slider__slide test{% if media.media_type != 'image' %} product__media-item--full{% endif %}{% if section.settings.hide_variants and variant_images contains media.src %} product__media-item--variant{% endif %}" data-media-id="{{ section.id }}-{{ media.id }}">
+              <li class="swiper mySwiper product__media-item grid__item slider__slide test{% if media.media_type != 'image' %} product__media-item--full{% endif %}{% if section.settings.hide_variants and variant_images contains media.src %} product__media-item--variant{% endif %}" data-media-id="{{ section.id }}-{{ media.id }}">
                 {% render 'product-thumbnail', media: media, position: forloop.index, loop: section.settings.enable_video_looping, modal_id: section.id, xr_button: true %}
               </li>
             {%- endunless -%}
@@ -66,8 +74,8 @@
         </button>
       {%- endif -%}
     </div>
-    <div class="product__info-wrapper w-1/2">
-      <div id="ProductInfo-{{ section.id }}" class="product__info-container{% if section.settings.enable_sticky_info %} product__info-container--sticky{% endif %}">
+    <div class=" w-1/2">
+      <div id="ProductInfo-{{ section.id }}" class="w-11/12 mx-auto product__info-container{% if section.settings.enable_sticky_info %} product__info-container--sticky{% endif %}">
         {%- assign product_form_id = 'product-form-' | append: section.id -%}
 
         {%- for block in section.blocks -%}
@@ -79,7 +87,7 @@
               {{- block.settings.text -}}
             </p>
           {%- when 'title' -%}
-            <h1 class="product__title" {{ block.shopify_attributes }}>
+            <h1 class="xl:text-56 text-32 font-medium text-fullgrey" {{ block.shopify_attributes }}>
               {{ product.title | escape }}
             </h1>
           {%- when 'price' -%}

@@ -30,7 +30,7 @@
   endif
 -%}
 
-<div class="price justify-center
+<div class="price justify-left
   {%- if price_class %} {{ price_class }}{% endif -%}
   {%- if available == false %} price--sold-out {% endif -%}
   {%- if compare_at_price > price %} price--on-sale {% endif -%}
@@ -47,7 +47,7 @@
         <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
       </dt>
       <dd {% if show_badges == false %}class="price__last"{% endif %}>
-        <span class="sm:text-16  text-14 text-fullgrey">ab</span>
+        <span class="sm:text-16  text-14 text-fullgrey {% if template contains 'product' %} hidden {% endif %}">ab</span>
         <span class="price-item price-item--regular font-bold sm:text-18 text-14 text-fullgrey">
           {{ money_price }}
         </span>
