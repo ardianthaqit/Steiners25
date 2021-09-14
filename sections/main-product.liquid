@@ -18,9 +18,48 @@
 {%- endif -%}
 
 <section class="max-w-1312 mx-auto xl:w-full w-11/12">
-  <div class="items-center product grid-d grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
-    <div class="w-1/2 ">
+  <div class="items-center product md:grid-d md:flex block grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
+    <div class="md:w-1/2 w-full">
 
+        <div class="row">
+          <div class="column small-11 small-centered">
+            <div class="slider slider-single">
+                {% for media in product.media %}
+                <img class="aspect-w-1 aspect-h-1 relative"
+                srcset="{% if media.preview_image.width >= 288 %}{{ media.preview_image | img_url: '288x' }} 288w,{% endif %}
+                  {% if media.preview_image.width >= 576 %}{{ media.preview_image | img_url: '576x' }} 576w,{% endif %}
+                  {% if media.preview_image.width >= 750 %}{{ media.preview_image | img_url: '750x' }} 750w,{% endif %}
+                  {% if media.preview_image.width >= 1100 %}{{ media.preview_image | img_url: '1100x' }} 1100w,{% endif %}
+                  {% if media.preview_image.width >= 1500 %}{{ media.preview_image | img_url: '1500x' }} 1500w{% endif %}"
+                src="{{ media | img_url: '1500x' }}"
+                
+                loading="lazy"
+                width="576"
+                height="{{ 576 | divided_by: media.preview_image.aspect_ratio | ceil }}"
+                alt="{{ media.preview_image.alt | escape }}"
+              >
+                {% endfor %}
+            </div>
+            <div class="slider slider-nav">
+              {% for media in product.media %}
+              <img class="pr-4 pt-4 aspect-w-1 aspect-h-1 relative"
+              srcset="{% if media.preview_image.width >= 288 %}{{ media.preview_image | img_url: '288x' }} 288w,{% endif %}
+                {% if media.preview_image.width >= 576 %}{{ media.preview_image | img_url: '576x' }} 576w,{% endif %}
+                {% if media.preview_image.width >= 750 %}{{ media.preview_image | img_url: '750x' }} 750w,{% endif %}
+                {% if media.preview_image.width >= 1100 %}{{ media.preview_image | img_url: '1100x' }} 1100w,{% endif %}
+                {% if media.preview_image.width >= 1500 %}{{ media.preview_image | img_url: '1500x' }} 1500w{% endif %}"
+              src="{{ media | img_url: '1500x' }}"
+              sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | times: 0.64 | round }}px, (min-width: 750px) calc((100vw - 11.5rem) / 2), calc(100vw - 4rem)"
+              loading="lazy"
+              width="576"
+              height="{{ 576 | divided_by: media.preview_image.aspect_ratio | ceil }}"
+              alt="{{ media.preview_image.alt | escape }}"
+            >
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+     
 
 
 
@@ -28,7 +67,7 @@
 
 
       
-      <slider-component class="slider-mobile-gutter">
+      {% comment %} <slider-component class="slider-mobile-gutter">
         <a class="skip-to-content-link button visually-hidden" href="#ProductInfo-{{ section.id }}">
           {{ "accessibility.skip_to_product_info" | t }}
         </a>
@@ -36,13 +75,16 @@
           {%- assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' -%}
           {%- if product.selected_or_first_available_variant.featured_media != null -%}
             {%- assign media = product.selected_or_first_available_variant.featured_media -%}
-            <li class="  product__media-item grid__item slider__slide{% if media.media_type != 'image' %} product__media-item--full{% endif %}{% if section.settings.hide_variants and variant_images contains media.src %} product__media-item--variant{% endif %}" data-media-id="{{ section.id }}-{{ media.id }}">
+            <li class=" product__media-item grid__item slider__slide{% if media.media_type != 'image' %} product__media-item--full{% endif %}{% if section.settings.hide_variants and variant_images contains media.src %} product__media-item--variant{% endif %}" data-media-id="{{ section.id }}-{{ media.id }}">
               {% render 'product-thumbnail', media: media, position: 'featured', loop: section.settings.enable_video_looping, modal_id: section.id, xr_button: true %}
             </li>
           {%- endif -%}
           {%- for media in product.media -%}
             {%- unless media.id == product.selected_or_first_available_variant.featured_media.id -%}
-              <li class="swiper mySwiper product__media-item grid__item slider__slide test{% if media.media_type != 'image' %} product__media-item--full{% endif %}{% if section.settings.hide_variants and variant_images contains media.src %} product__media-item--variant{% endif %}" data-media-id="{{ section.id }}-{{ media.id }}">
+            <li class="slider slider-single {% if media.media_type != 'image' %} product__media-item--full{% endif %}{% if section.settings.hide_variants and variant_images contains media.src %} product__media-item--variant{% endif %}" data-media-id="{{ section.id }}-{{ media.id }}">
+              {% render 'product-thumbnail', media: media, position: forloop.index, loop: section.settings.enable_video_looping, modal_id: section.id, xr_button: true %}
+            </li>
+              <li class="slider slider-nav {% if media.media_type != 'image' %} product__media-item--full{% endif %}{% if section.settings.hide_variants and variant_images contains media.src %} product__media-item--variant{% endif %}" data-media-id="{{ section.id }}-{{ media.id }}">
                 {% render 'product-thumbnail', media: media, position: forloop.index, loop: section.settings.enable_video_looping, modal_id: section.id, xr_button: true %}
               </li>
             {%- endunless -%}
@@ -58,7 +100,7 @@
           </div>
           <button type="button" class="slider-button slider-button--next" name="next" aria-label="{{ 'accessibility.next_slide' | t }}">{% render 'icon-caret' %}</button>
         </div>
-      </slider-component>
+      </slider-component> {% endcomment %}
       {%- if first_3d_model -%}
         <button
           class="button button--full-width product__xr-button"
@@ -74,7 +116,7 @@
         </button>
       {%- endif -%}
     </div>
-    <div class=" w-1/2">
+    <div class="md:w-1/2 w-full">
       <div id="ProductInfo-{{ section.id }}" class="w-11/12 mx-auto product__info-container{% if section.settings.enable_sticky_info %} product__info-container--sticky{% endif %}">
         {%- assign product_form_id = 'product-form-' | append: section.id -%}
 
@@ -109,11 +151,19 @@
           {%- when 'custom_liquid' -%}
             {{ block.settings.custom_liquid }}
           {%- when 'collapsible_tab' -%}
+
+          <div>
+          {% if block.settings.accordion %}
             <div class="product__accordion accordion" {{ block.shopify_attributes }}>
+             
+
               <details>
                 <summary>
                   <div class="summary__title">
                     {% render 'icon-accordion', icon: block.settings.icon %}
+                    {% if block.settings.svg != blank %}
+                    {{ block.settings.svg }}
+                    {% endif %}
                     <h2 class="h4 accordion__title">
                       {{ block.settings.heading | default: block.settings.page.title }}
                     </h2>
@@ -125,6 +175,19 @@
                   {{ block.settings.page.content }}
                 </div>
               </details>
+                {% else %}
+              <div>
+                <div class="flex justify-start items-center">
+                  {% render 'icon-accordion', icon: block.settings.icon %}
+                  {% if block.settings.svg != blank %}
+                  <div class="pr-4">{{ block.settings.svg }}</div>
+                  {% endif %}
+                  <h2 class="h4 accordion__title">
+                    {{ block.settings.heading | default: block.settings.page.title }}
+                  </h2>
+                </div>
+            </div>
+            {% endif %}
             </div>
           {%- when 'quantity_selector' -%}
             <div class="product-form__input product-form__quantity" {{ block.shopify_attributes }}>
@@ -535,6 +598,9 @@
         }
       ]
     },
+
+
+
     {
       "type": "title",
       "name": "t:sections.main-product.blocks.title.name",
@@ -629,6 +695,11 @@
       "type": "collapsible_tab",
       "name": "t:sections.main-product.blocks.collapsible_tab.name",
       "settings": [
+      {
+        "type": "checkbox",
+        "id": "accordion",
+        "label": "Show Accordion"
+      },
         {
           "type": "text",
           "id": "heading",
@@ -645,6 +716,11 @@
           "type": "page",
           "id": "page",
           "label": "t:sections.main-product.blocks.collapsible_tab.settings.page.label"
+        },
+        {
+          "type":"html",
+          "id":"svg",
+          "label":"Inset SVG HTML"
         },
         {
           "type": "select",

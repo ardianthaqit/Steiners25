@@ -2378,3 +2378,27 @@ button.shopify-payment-button__button, .product-form__submit {
   box-shadow: none!important;
   text-transform: uppercase;
 }
+.slick-track{
+  width: 100%!important;
+  display: flex!important;
+  justify-content: flex-start!important;
+}
+.spr-reviews{
+  display: flex!important;
+
+}
+.spr-review{
+  width: 45%!important;
+  border: 1px solid #E8E8E1;
+  margin: auto!important;
+  padding: 20px!important;
+}
+.spr-review:first-child{
+  margin: 0;
+}
+.spr-review:first-child{
+  margin-top: 0!important;
+}
+.spr-review-footer {
+  display: none;
+}

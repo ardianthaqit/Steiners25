@@ -30,7 +30,7 @@
   endif
 -%}
 
-<div class="price justify-left
+<div class="price  {% if template contains 'product' %} justify-left {% else %} justify-center {% endif %}
   {%- if price_class %} {{ price_class }}{% endif -%}
   {%- if available == false %} price--sold-out {% endif -%}
   {%- if compare_at_price > price %} price--on-sale {% endif -%}
