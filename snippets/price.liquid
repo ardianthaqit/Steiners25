@@ -30,7 +30,7 @@
   endif
 -%}
 
-<div class="price  {% if template contains 'product' %} justify-left {% else %} justify-center {% endif %}
+<div class="price  {% if template contains 'product' %}  justify-left {% else %} justify-center {% endif %}
   {%- if price_class %} {{ price_class }}{% endif -%}
   {%- if available == false %} price--sold-out {% endif -%}
   {%- if compare_at_price > price %} price--on-sale {% endif -%}
@@ -48,7 +48,7 @@
       </dt>
       <dd {% if show_badges == false %}class="price__last"{% endif %}>
         <span class="sm:text-16  text-14 text-fullgrey {% if template contains 'product' %} hidden {% endif %}">ab</span>
-        <span class="price-item price-item--regular font-bold sm:text-18 text-14 text-fullgrey">
+        <span class="{% if template contains 'product' %} md:text-32 text-20 font-bold text-fullgrey   {% else %} price-item price-item--regular font-bold sm:text-18 text-14 text-fullgrey  {% endif %}">
           {{ money_price }}
         </span>
       </dd>
@@ -90,7 +90,7 @@
       </dd>
     </small>
   </dl>
-  {%- if show_badges -%}
+  <!-- {%- if show_badges -%}
     <span class="badge price__badge-sale color-{{ settings.sale_badge_color_scheme }}" aria-hidden="true">
       {{ 'products.product.on_sale' | t }}
     </span>
@@ -98,5 +98,5 @@
     <span class="badge price__badge-sold-out color-{{ settings.sold_out_badge_color_scheme }}" aria-hidden="true">
       {{ 'products.product.sold_out' | t }}
     </span>
-  {%- endif -%}
+  {%- endif -%} -->
 </div>

@@ -224,6 +224,7 @@ module.exports = {
       '16':'16px',
       '20':'20px',
       '23':'23px',
+      '26':'26px',
       
      },
      fontWeight: {

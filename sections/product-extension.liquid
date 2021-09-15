@@ -1,10 +1,21 @@
-<div class="w-full block" style="background-color: {{ section.settings.bgcolor }};">
-    <div class="max-w-1312 mx-auto xl:w-full w-11/12">
+<div class="w-full block mt-40" style="background-color: {{ section.settings.bgcolor }};">
+    <div class="max-w-1312 mx-auto xl:w-full w-11/12 pt-40">
         {% if product.metafields.global.titledeatils != blank %}
-        <div>{{ product.metafields.global.titledeatils }}</div>
+        <div class="lg:text-44 text-32 text-left font-bold text-fullgrey pb-4">
+          {{ product.metafields.global.titledeatils }}
+        </div>
         {% endif %}
-        {{ product.metafields.global.textdetails }}
-        {{ product.metafields.global.tablecontent }}
+        {% if product.metafields.global.textdetails != blank %}
+        <div class="text-darkdark text-16">{{ product.metafields.global.textdetails }}</div>
+        {% endif %}
+        {% if product.metafields.global.header %}
+          <div class="py-4 text-26 font-bold">{{ product.metafields.global.header }}</div>
+          {% endif %}
+          {% if product.metafields.global.tablecontent %}
+         <div class="product-details-table">
+          {{ product.metafields.global.tablecontent }}
+         </div>
+         {% endif %}
     </div>
 </div>
 {% schema %}
