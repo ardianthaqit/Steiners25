@@ -2514,3 +2514,8 @@ span.spr-summary-caption {
   font-size: 14px!important;
   color: #333232!important;
 }
+td {
+  font-size: 18px;
+  font-family: 'Assistant';
+  color: #2B2A2A;
+}
