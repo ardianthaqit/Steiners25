@@ -30,6 +30,7 @@ module.exports = {
         darkdark:'#2B2A2A',
         fullgrey:'#333232',
         fulldark:'#202223',
+        grey700:'#A6ADAD',
       },
       width: {
         '1/7': '14.2857143%',
@@ -59,6 +60,7 @@ module.exports = {
         '625': '625px',
         '1312': '1312px',
         '70':'70%',
+        '60':'60%',
       },
       minWidth: {
         '0': '0',
@@ -178,6 +180,7 @@ module.exports = {
       xl: '48px',
       iconpadding:'12px',
       mid:'30px',
+      midxl:'38px',
      },
      lineHeight: {
       'extra-loose': '2.5',

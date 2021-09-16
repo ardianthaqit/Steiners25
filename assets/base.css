@@ -2472,7 +2472,7 @@ table:not([class]) td, table:not([class]) th {
   appearance: none;
 }
  span.spr-summary-actions {
-  padding-top: 10px;
+  padding-top: 40px;
   position: absolute;
   top: 100%;
   left: 0;
@@ -2482,4 +2482,35 @@ table:not([class]) td, table:not([class]) th {
 } 
 .spr-summary{
   position: relative;
+}
+.spr-reviews {
+  margin: 55px 0 0 0!important;
+}
+span.spr-summary-caption {
+  font-weight: bold;
+  font-size: 18px;
+  position: absolute;
+  top: 13px;
+  padding-top: 10px;
+  left: 0;
+  padding-top: 20px;
+}
+.spr-header-title{
+  font-size: 44px!important;
+  font-weight: bold;
+  font-family: 'DM Sans';
+}
+.spr-review-header-title{
+  font-size: 18px!important;
+  font-weight: bold;
+  color: #333232!important;
+}
+.spr-review-header-byline{
+  font-size: 12px!important;
+  font-weight: normal!important;
+  color: #333232!important;
+}
+.spr-review-content-body{
+  font-size: 14px!important;
+  color: #333232!important;
 }

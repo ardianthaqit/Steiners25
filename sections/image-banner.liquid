@@ -81,9 +81,9 @@
       {%- for block in section.blocks -%}
         {%- case block.type -%}
           {%- when 'heading' -%}
-            <h2 class="lg:text-56 text-32 text-whitegrey font-bold lg:w-940px w-auto" {{ block.shopify_attributes }}>
+            <h1 class="lg:text-56 text-32 text-whitegrey font-bold lg:w-940px w-auto" {{ block.shopify_attributes }}>
               <span class="text-shadow">{{ block.settings.heading | escape }}</span>
-            </h2>
+            </h1>
           {%- when 'text' -%}
             <div class="banner__text pt-10  lg:w-629 w-auto" {{ block.shopify_attributes }}>
               <span class="text-18 text-white ">{{ block.settings.text | escape }}</span>

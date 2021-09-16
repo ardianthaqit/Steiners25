@@ -1,5 +1,5 @@
-<div class="w-full xl:flex block">
-    <div class="flex xl:w-1/2 w-full ">
+<div class=" xl:flex block  max-w-1312 mx-auto w-11/12">
+    <div class="flex xl:w-1/2 w-full bg-grey700">
         <div class="w-full img-teams">
             {{ section.settings.firstimage | img_url: 'master'| img_tag: block.settings.icon.alt}}
         </div>
@@ -16,10 +16,10 @@
             <div class="py-4 font-bold text-20 text-15 text-darkdark md:w-652 w-auto">{{ section.settings.desc }}</div>
             {% endif %}
             {% if section.settings.button_url != blank%}
-            <a href="{{ section.settings.button_url }}"
+            <a style="background-color: {{ section.settings.btncolor }};" href="{{ section.settings.button_url }}"
               class="bg-black button pt-4"
               aria-label="{{ ariaLabel }}">
-                <div class="text-white font-semibold text-lg md:text-2xl text-center uppercase tracking-wider">
+                <div class="text-white font-semibold text-lg md:text-2xl text-center  tracking-wider">
                   {{- section.settings.button_text | escape -}}
                 </div>
             </a>
@@ -29,20 +29,22 @@
                 {% if section.settings.name != blank %}
                 <div class="py-10 font-bold text-20 text-darkdark">{{ section.settings.name }}</div>
                 {% endif %}
-                <div class="lg:flex block">
-                    <div class="block lg:w-1/4 w-full">
-                        {% if section.settings.phone != blank %}
-                        <div class="flex">{% include 'icon-phone' %} <span class="pl-iconpadding text-16 font-bold text-darkdark">{{ section.settings.labelphone }}</span></div>
-                        <div class="pl-mid text-16 text-darkdark font-normal">{{ section.settings.phone }} </div>
-                        {% endif %}
-                    </div>
-                    <div class="block lg:w-1/4 w-full lg:pt-0 pt-4">
-                        {% if section.settings.phone != blank %}
-                        <div class="flex">{% include 'icon-mail' %} <span class="pl-iconpadding text-16 font-bold text-darkdark">{{ section.settings.labelmail }}</span></div>
-                        <div class="pl-mid text-16 text-darkdark font-normal">{{ section.settings.email }} </div>
-                        {% endif %} 
-                    </div>
-                </div>
+              <div class="flex justify-start">
+
+                  <div class="block lg:w-1/2 w-full">
+                      {% if section.settings.phone != blank %}
+                      <div class="flex">{% include 'icon-phone' %} <span class="pl-iconpadding text-16 font-bold text-darkdark">{{ section.settings.labelphone }}</span></div>
+                      <div class="pl-mid text-16 text-darkdark font-normal">{{ section.settings.phone }} </div>
+                      {% endif %}
+                  </div>
+                  <div class="block lg:w-1/2 w-full lg:pt-0 pt-4">
+                      {% if section.settings.phone != blank %}
+                      <div class="flex">{% include 'icon-mail' %} <span class="pl-iconpadding text-16 font-bold text-darkdark">{{ section.settings.labelmail }}</span></div>
+                      <div class="pl-midxl text-16 text-darkdark font-normal">{{ section.settings.email }} </div>
+                      {% endif %} 
+                  </div>
+            
+              </div>
             </div>
         </div>
 
@@ -83,6 +85,11 @@
           "id": "button_text",
           "label": "Button text",
           "default": "Button"
+        },
+        {
+          "type": "color",
+          "id": "btncolor",
+          "label": "Button Color"
         },
         {
             "type": "checkbox",
