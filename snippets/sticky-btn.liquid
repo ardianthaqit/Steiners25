@@ -1,0 +1,146 @@
+<style>
+    .contact-info {
+      position: fixed;
+      top: 50%;
+      right: 0;
+      z-index: 9999;
+    }
+  
+    .contact-info img {
+      width: 20px;
+      height: 20px;
+      color: #fff;
+    }
+    .contact-info ul.icon-wrapper {
+      list-style-type: none;
+      padding: 0;
+      transform: translateX(0px);
+      margin-left: 0;
+    }
+  
+    .contact-info ul.icon-wrapper>li {
+      display: flex;
+      width: 178px;
+      text-align: left;
+      height: auto;
+      position: relative;
+      transform: translateX(178px);
+      transition: all 1s;
+      margin-bottom: 10px;
+      background: #01A0DB;
+      color:#fff;
+      bottom:100px;
+    }
+  
+    .contact-info ul.icon-wrapper>li .icon {
+      background-color: #01A0DB;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      left: -40px;
+      padding-right: 0px;
+      top: 0;
+      width: 40px;
+      height: 42px;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+    li.contact-form {
+      padding: 11px 0;
+    }
+    .mail-style {
+      margin-top: 0 !important;
+    }
+  
+    .contact-info .info-wrapper {
+      padding-left: 12px;
+      font-size: 15px;
+      height:42px;
+      display:flex;
+      align-items: center;
+    }
+    .contact-info ul.icon-wrapper>li:hover {
+        transform: translateX(5px);
+        cursor: pointer;
+    }
+    .contact-info>ul.icon-wrapper>li>.info-wrapper>.social-icons-wrapper>li {
+      display: inline-block;
+      margin-right: 20px;
+    }
+  
+    ul.social-icons-wrapper {
+        display: flex;
+    }
+  
+    li.telephone {
+        height: 20px;
+    }
+  
+    li.contact-form {
+        height: 20px;
+    }
+  
+    .info-wrapper p {
+        margin-bottom: 0px;
+    }
+  
+    .contact-info .social-icons-wrapper>li img {
+      height: 20px;
+      width: auto;
+    }
+  
+    li.contact-form>.info-wrapper>p {
+        font-size: 12px;
+    position: relative;
+      top: 10px;
+    }
+  
+    nav.contact-info>ul.icon-wrapper>li.share>div.info-wrapper>ul.social-icons-wrapper>li {
+      padding: 3px 6px;
+      margin-left: 15px;
+    }
+  
+  
+   .widget-container li.telephone {
+        margin-bottom: 10px;
+    }
+    a.sticky_clickCall {
+      color: #fff;
+  }
+  .info-wrapper .sticky_clickCall{
+      color:#fff;
+  }
+  .info-wrapper .sticky_clickCall:hover{
+      color:#fff;
+  }
+  .mail-style{
+      height: 42px;
+       bottom: 1px!important;
+       right: 10px;
+  }
+  .cf-p{
+      
+  padding: 0 5px 0 0!important;
+  }
+  
+  </style>
+  <nav class=" contact-info d-none d-md-block">
+    <ul class="icon-wrapper">
+      <li class="telephone">
+        <span class="icon"><img class="img-fluid" src="https://wolasan.de/wp-content/uploads/2021/07/Vector-phone.png" alt="phone icon"></span>
+        <div class="info-wrapper">  
+          <p><a href="tel:{{ shop.phone }}" class="sticky_clickCall">{{ shop.phone }}</a></p>
+        </div>
+      </li>    
+      
+      
+              <li class="whatsapp">
+        <span class="icon"><img class="img-fluid" src="https://wolasan.de/wp-content/uploads/2021/07/mail.png" alt="phone icon"></span>
+        <div class="info-wrapper">  
+          <p><a href="mailto:{{ shop.email }}" class="sticky_clickCall">{{ shop.email }}</a></p>
+        </div>
+      </li>
+     
+    </ul>
+  </nav>

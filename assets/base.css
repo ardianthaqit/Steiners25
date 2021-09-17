@@ -1370,13 +1370,13 @@ details[open] > .share-button__fallback {
   color: rgba(var(--color-foreground), 0.75);
 }
 
-.field__input:hover,
+/* .field__input:hover,
 .select__select:hover,
 .customer .field input:hover,
 .customer select:hover,
 .localization-form__select:hover {
   box-shadow: 0 0 0 0.2rem rgba(var(--color-foreground), 0.55);
-}
+} */
 
 .field__input:focus,
 .select__select:focus,
@@ -1437,15 +1437,13 @@ details[open] > .share-button__fallback {
 
 .field__label,
 .customer .field label {
-  font-size: 1.6rem;
+  font-size: 16px;
   left: 1.5rem;
-  top: 1rem;
+  top: 8px;
   margin-bottom: 0;
   pointer-events: none;
   position: absolute;
-  transition: top var(--duration-short) ease,
-    font-size var(--duration-short) ease;
-  color: rgba(var(--color-foreground), 0.75);
+  color: #202223;
   letter-spacing: 0.1rem;
   line-height: 1.5;
 }
@@ -2518,4 +2516,50 @@ td {
   font-size: 18px;
   font-family: 'Assistant';
   color: #2B2A2A;
+}
+.dropdown-variants {
+  max-width: 100%!important;
+  width: 100%!important;
+  background: #FAFAFA;
+  padding-bottom: 30px;
+  padding-top: 30px;
+}
+.selector{
+  margin: auto;
+  width: 100%!important;
+  max-width: 100%!important;
+}
+.product-form__input--dropdown{
+  max-width: 100%!important;
+  width: 90%!important;
+  margin: auto!important;
+}
+.select-dropdown{
+  border: 1px solid #EFEFEF;
+  padding: 1rem;
+  height: 100%!important;
+  color: #989898!important;
+  font-size: 16px!important;
+  
+}
+ul.footer-block__details-content.list-unstyled li {
+  padding-top: 15px;
+}
+.select-dropdown option{
+  color: #989898!important;
+  font-size: 16px!important;
+  margin-top: 10px;
+}
+.flex-row-reverse{
+  flex-direction: row-reverse!important;
+}
+.price-item--regular{
+  color: #706F6F!important;
+  font-size: 32px!important;
+  font-weight: bold;
+}
+.price-item--sale{
+  color: #333232;
+  font-size: 32px!important;
+  font-weight: bold;
 }

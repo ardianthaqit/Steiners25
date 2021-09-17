@@ -84,12 +84,12 @@
           </ul>
         {%- endif -%}
         <div class="contact__fields">
-          <div class="pb-4 text-16 text-fulldark">Name</div>
+          <div class="text-16 text-fulldark">Name</div>
           <div class="field">
             <input class="field__input" autocomplete="name" type="text" id="ContactForm-name" name="contact[{{ 'templates.contact.form.name' | t }}]" value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}" placeholder="{{ 'templates.contact.form.name' | t }}">
             <label class="field__label" for="ContactForm-name">{{ 'templates.contact.form.name' | t }}</label>
           </div>
-          <div class="pb-4 text-16 text-fulldark">E-Mail</div>
+          <div class=" text-16 text-fulldark">E-Mail</div>
           <div class="field field--with-error">
             <input
               autocomplete="email"
@@ -116,12 +116,12 @@
             {%- endif -%}
           </div>
         </div>
-        <div class="pb-4 text-16 text-fulldark">Telefonnummer</div>
+        <div class="text-16 text-fulldark">Telefonnummer</div>
         <div class="field">
           <input type="tel" id="ContactForm-phone" class="field__input" autocomplete="tel" name="contact[{{ 'templates.contact.form.phone' | t }}]" pattern="[0-9\-]*" value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}" placeholder="{{ 'templates.contact.form.phone' | t }}">
           <label class="field__label" for="ContactForm-phone">{{ 'templates.contact.form.phone' | t }}</label>
         </div>
-        <div class="pb-4 text-16 text-fulldark">Kommentar</div>
+        <div class="text-16 text-fulldark">Kommentar</div>
         <div class="field">
           <textarea
             rows="10"

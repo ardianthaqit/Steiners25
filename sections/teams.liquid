@@ -1,4 +1,4 @@
-<div class=" xl:flex block  max-w-1312 mx-auto w-11/12">
+<div class=" xl:flex block  max-w-full mx-auto w-full">
     <div class="flex xl:w-1/2 w-full bg-grey700">
         <div class="w-full img-teams">
             {{ section.settings.firstimage | img_url: 'master'| img_tag: block.settings.icon.alt}}
@@ -29,7 +29,7 @@
                 {% if section.settings.name != blank %}
                 <div class="py-10 font-bold text-20 text-darkdark">{{ section.settings.name }}</div>
                 {% endif %}
-              <div class="flex justify-start">
+              <div class="sm:flex block  justify-start">
 
                   <div class="block lg:w-1/2 w-full">
                       {% if section.settings.phone != blank %}

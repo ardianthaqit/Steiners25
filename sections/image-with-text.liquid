@@ -28,6 +28,7 @@
     </div>
     <div class="grid__item">
       <div class="pt-10">
+        <div class="image-with-text__content image-with-text__content--{{ section.settings.height }}">
         {%- for block in section.blocks -%}
           {% case block.type %}
             {%- when 'heading' -%}
@@ -44,6 +45,7 @@
               {%- endif -%}
           {%- endcase -%}
         {%- endfor -%}
+        </div>
       </div>
     </div>
   </div>
